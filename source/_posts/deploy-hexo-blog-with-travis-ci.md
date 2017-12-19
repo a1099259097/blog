@@ -30,7 +30,7 @@ tags:
 `ssh-keygen -t rsa -C "youremail@your.com” -f ~/.ssh/vps_rsa`
 5. 将公钥写入vps authorized_keys
 `ssh git@vps 'cat >> ~/.ssh/authorized_keys' < ~/.ssh/vps_rsa.pub`
-6. 加密私钥
+6. 加密私钥，防止被利用你懂的
 ``` bash
 # 安装ruby
 curl -sSL https://get.rvm.io | bash -s stable --ruby
