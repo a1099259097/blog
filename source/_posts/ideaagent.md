@@ -33,4 +33,8 @@ ideaagent 下载 [https://github.com/mrshawnho/ideaagent](https://github.com/mrs
 `-javaagent:ideaagent-1.0-jar-with-dependencies.jar`
 2. 重启 IDEA
 
+## 测试环境
+1. JDK 1.8
+2. IDEA 2017 3.1
+
 本文为个人学习笔记，切勿用于非法用途，转载请注明出处。
