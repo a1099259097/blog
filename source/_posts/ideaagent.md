@@ -29,23 +29,10 @@ ideaagent 下载 [https://github.com/mrshawnho/ideaagent](https://github.com/mrs
 3. 使用 vert.x 创建本地 http 认证服务器
 
 ## 使用方法
-1. 解压到 ~/
-2. 添加 VM option 末尾 (IDEA Help > Edit Custom VM Options...)
+1. 解压到 ${dir}
+2. 添加到 IDEA VM options 末尾 (IDEA Help > Edit Custom VM Options...)
 ```
-# custom IntelliJ IDEA VM options
-
--Xms128m
--Xmx750m
--XX:ReservedCodeCacheSize=240m
--XX:+UseConcMarkSweepGC
--XX:SoftRefLRUPolicyMSPerMB=50
--ea
--Dsun.io.useCanonCaches=false
--Djava.net.preferIPv4Stack=true
--XX:+HeapDumpOnOutOfMemoryError
--XX:-OmitStackTraceInFastThrow
-
--javaagent:~/ideaagent-1.0-jar-with-dependencies.jar
+-javaagent:${dir}/ideaagent-1.0-jar-with-dependencies.jar
 ```
 3. 重启 IDEA
 
