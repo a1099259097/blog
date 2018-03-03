@@ -1,7 +1,7 @@
 ---
 title: IntelliJ IDEA 辅助工具 ideaagent
 date: 2017-12-20 19:14:16
-keywords: mybatis plugin crack, iedis crack
+keywords: mybatis plugin crack, iedis plugin crack
 categories: 笔记
 tags:
 - java
@@ -10,9 +10,15 @@ tags:
 ---
 > IntelliJ IDEA 是本人常用的IDE之一，其中有两款插件特别好用，[Mybatis plugin](https://plugins.jetbrains.com/plugin/7293-mybatis-plugin) 和 [Iedis](https://plugins.jetbrains.com/plugin/9228-iedis)，由于不是免费的，所以制作了本工具来绕过限制。
 
-ideaagent 下载 [https://github.com/mrshawnho/ideaagent](https://github.com/mrshawnho/ideaagent)
+ideaagent v1.11 下载地址 [https://github.com/mrshawnho/ideaagent](https://github.com/mrshawnho/ideaagent)
+更新于 2018-03-03
 
 ## 插件分析
+
+## Mybatis plugin
+
+### Mybatis plugin v3.53
+3.53 试图阻止ideaagent运行，不过山人自有妙招。
 
 ### Mybatis plugin v3.42
 3.42 使用 Kotlin 开发，代码做了混淆，更变态的是将核心代码藏在了 mybatis-generator-core-1.3.5.jar
@@ -20,25 +26,22 @@ ideaagent 下载 [https://github.com/mrshawnho/ideaagent](https://github.com/mrs
 
 继续分析后发现插件是通过服务端请求认证的，那么我们修改为本地认证就好啦，最初以为改改hosts文件伪造请求就可以了，但没那么简单，内容通过了RSA加密与验签，没有私钥是徒劳的，那么暴力点把公钥改了，皆大欢喜！
 
+## Iedis
+
 ### Iedis v2.43
 2.43 只是做了代码混淆，同上的思路也能达到目的。
 
 ## 技术实现
 1. 通过 java instrumentation 技术创建 IDEA 的代理程序
 2. 使用 javassist 动态修改代码
-3. 使用 vert.x 创建本地 http 认证服务器
 
 ## 使用方法
-1. 解压到 ${dir}
-2. 添加到 IDEA VM options 末尾 (IDEA Help > Edit Custom VM Options...)
-```
--javaagent:${dir}/ideaagent-1.0-jar-with-dependencies.jar
-```
-3. 重启 IDEA
+1. 本工具以 IntelliJ IDEA 插件形式运行，安装后重启即生效。
+2. Preferences -> Install plugin from disk...
 
 ## 测试环境
 1. Windows 10 && MacOS Sierra
 2. JDK 1.8
-3. IDEA 2017 3.1
+3. IDEA 2017 3.4
 
 本文为个人学习笔记，切勿用于非法用途，转载请注明出处。
