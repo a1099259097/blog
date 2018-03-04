@@ -36,8 +36,8 @@ ideaagent v1.11 下载地址 [https://github.com/mrshawnho/ideaagent](https://gi
 2. 使用 javassist 动态修改代码
 
 ## 使用方法
-1. 本工具以 IntelliJ IDEA 插件形式运行，安装后重启即生效。
-2. Preferences -> Install plugin from disk...
+1. 下载 Zip 格式插件包 [ideaagent-1.11.zip](https://github.com/mrshawnho/ideaagent/releases)
+2. 启动 IDEA 后安装插件 -> Preferences -> Plugins -> Install plugin from disk...
 
 ## 测试环境
 1. Windows 10 && MacOS Sierra
