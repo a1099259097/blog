@@ -10,8 +10,8 @@ tags:
 ---
 > IntelliJ IDEA 是本人常用的IDE之一，其中有两款插件特别好用，[Mybatis plugin](https://plugins.jetbrains.com/plugin/7293-mybatis-plugin) 和 [Iedis](https://plugins.jetbrains.com/plugin/9228-iedis)，由于不是免费的，所以制作了本工具来绕过限制。
 
-ideaagent v1.11 下载地址 [https://github.com/mrshawnho/ideaagent](https://github.com/mrshawnho/ideaagent)
-更新于 2018-03-03
+ideaagent v1.12 下载地址 [https://github.com/mrshawnho/ideaagent](https://github.com/mrshawnho/ideaagent)
+更新于 2018-03-09
 
 ## 插件分析
 
@@ -36,7 +36,7 @@ ideaagent v1.11 下载地址 [https://github.com/mrshawnho/ideaagent](https://gi
 2. 使用 javassist 动态修改代码
 
 ## 使用方法
-1. 下载 Zip 格式插件包 [ideaagent-1.11.zip](https://github.com/mrshawnho/ideaagent/releases)
+1. 下载 Zip 格式插件包 [ideaagent-1.12.zip](https://github.com/mrshawnho/ideaagent/releases)
 2. 启动 IDEA 后安装插件 -> Preferences -> Plugins -> Install plugin from disk...
 
 ## 测试环境
