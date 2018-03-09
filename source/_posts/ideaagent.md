@@ -34,6 +34,7 @@ ideaagent v1.12 下载地址 [https://github.com/mrshawnho/ideaagent](https://gi
 ## 技术实现
 1. 通过 java instrumentation 技术创建 IDEA 的代理程序
 2. 使用 javassist 动态修改代码
+3. 使用 vertx web 创建本地认证服务器
 
 ## 使用方法
 1. 下载 Zip 格式插件包 [ideaagent-1.12.zip](https://github.com/mrshawnho/ideaagent/releases)
