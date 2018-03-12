@@ -271,9 +271,9 @@ nrm use taobao
 
 ### 安装
 ``` bash
-wget https://nginx.org/download/nginx-1.13.7.tar.gz
-tar -zxvf nginx-1.13.7.tar.gz
-cd nginx-1.13.7
+wget https://nginx.org/download/nginx-1.13.9.tar.gz
+tar -zxvf nginx-1.13.9.tar.gz
+cd nginx-1.13.9
 ./configure --prefix=/usr/local --with-http_ssl_module
 make && make install
 vim /usr/local/conf/nginx.conf
@@ -284,6 +284,14 @@ vim /usr/local/conf/nginx.conf
 nginx 启动
 nginx -s reload 重启
 nginx -s stop 停止
+```
+
+### 获取 SSL 证书
+``` bash
+wget https://github.com/certbot/certbot/archive/v0.22.0.tar.gz
+tar -zxvf v0.22.0.tar.gz
+./certbot-auto certonly --standalone --email name@domain.com -d domain.com
+./certbot-auto renew --force-renewal --pre-hook "nginx -s quit" --post-hook "nginx"
 ```
 
 ## docker
@@ -344,5 +352,16 @@ character_set_server=utf8mb4
 collation_server=utf8mb4_unicode_ci
 wait_timeout=31536000
 interactive_timeout=31536000
-docker restart mysqldb
+```
+
+### nextcloud
+``` bash
+docker pull nextcloud:latest
+docker run --name nextcloud --link mysqldb:mysqldb \
+-v /var/nextcloud/data:/var/www/html/data \
+-v /var/nextcloud/config:/var/www/html/config \
+-v /var/nextcloud/apps:/var/www/html/custom_apps \
+-v /var/nextcloud/themes:/var/www/html/themes \
+-p 80:80 \
+-d nextcloud:latest
 ```
