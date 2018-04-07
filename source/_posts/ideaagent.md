@@ -1,48 +1,46 @@
 ---
 title: IntelliJ IDEA 辅助工具 ideaagent
 date: 2017-12-20 19:14:16
-keywords: mybatis plugin crack, iedis plugin crack
+keywords: mybatis plugin crack, iedis crack
 categories: 笔记
 tags:
 - java
 - idea
 - crack
 ---
-> IntelliJ IDEA 是本人常用的IDE之一，其中有两款插件特别好用，[Mybatis plugin](https://plugins.jetbrains.com/plugin/7293-mybatis-plugin) 和 [Iedis](https://plugins.jetbrains.com/plugin/9228-iedis)，由于不是免费的，所以制作了本工具来绕过限制。
+> IntelliJ IDEA 是本人常用的IDE之一，其中有两款插件特别好用，[Mybatis plugin 3.58](https://plugins.jetbrains.com/plugin/7293-mybatis-plugin) 和 [Iedis 2.56](https://plugins.jetbrains.com/plugin/9228-iedis)，由于不是免费的，所以制作了本工具来绕过限制。
 
-ideaagent v1.12 下载地址 [https://github.com/mrshawnho/ideaagent](https://github.com/mrshawnho/ideaagent)
-更新于 2018-03-09
+ideaagent v1.2 下载地址 [https://github.com/mrshawnho/ideaagent](https://github.com/mrshawnho/ideaagent)
+更新于 2018-04-07
 
-## 插件分析
+## 特色功能
+### ideaagent v1.2
+Mybatis plugin v3.58 crack
+Iedis v2.56 crack
+支持 IntelliJ IDEA 2018.1
 
-## Mybatis plugin
-
-### Mybatis plugin v3.53
-3.53 试图阻止ideaagent运行，不过山人自有妙招。
-
-### Mybatis plugin v3.42
-3.42 使用 Kotlin 开发，代码做了混淆，更变态的是将核心代码藏在了 mybatis-generator-core-1.3.5.jar
-包中的 DeleteByPrimaryKeyElementGenerator.class 文件中以供插件运行时动态加载，对修改插件字节码而达到目的增加了一定难度。
-
-继续分析后发现插件是通过服务端请求认证的，那么我们修改为本地认证就好啦，最初以为改改hosts文件伪造请求就可以了，但没那么简单，内容通过了RSA加密与验签，没有私钥是徒劳的，那么暴力点把公钥改了，皆大欢喜！
-
-## Iedis
-
-### Iedis v2.43
-2.43 只是做了代码混淆，同上的思路也能达到目的。
-
-## 技术实现
-1. 通过 java instrumentation 技术创建 IDEA 的代理程序
-2. 使用 javassist 动态修改代码
-3. 使用 vertx web 创建本地认证服务器
+### ideaagent v1.12
+Mybatis plugin v3.53 crack
+Iedis v2.43 crack
+支持 IntelliJ IDEA 2017.3.5
 
 ## 使用方法
-1. 下载 Zip 格式插件包 [ideaagent-1.12.zip](https://github.com/mrshawnho/ideaagent/releases)
-2. 启动 IDEA 后安装插件 -> Preferences -> Plugins -> Install plugin from disk...
+1. 下载 [ideaagent-1.2.jar](https://github.com/mrshawnho/ideaagent/releases)
+2. 打开 idea.vmoptions (Help -> Edit Custom VM Options...)
+最下方插入 `-javaagent:/download/ideaagent-1.2.jar`
+![](/uploads/ideaagent/001.png)
+3. 重启 idea
+首次启动需要信任本地服务器 ssl 证书，点击接受后如未激活，再次重启即可
+![](/uploads/ideaagent/002.png)
 
 ## 测试环境
-1. Windows 10 && MacOS Sierra
+1. Windows 10 && MacOS High Sierra
 2. JDK 1.8
-3. IDEA 2017 3.4
+3. IDEA 2018.1
+
+## 技术实现
+1. 使用 java instrumentation 创建代理
+2. 使用 javassist 动态修改代码
+3. 使用 vertx web 创建本地认证服务器
 
 本文为个人学习笔记，切勿用于非法用途，转载请注明出处。
