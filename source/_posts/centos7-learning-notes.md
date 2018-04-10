@@ -289,9 +289,19 @@ nginx -s stop 停止
 ### 获取 SSL 证书
 ``` bash
 wget https://github.com/certbot/certbot/archive/v0.22.0.tar.gz
-tar -zxvf v0.22.0.tar.gz
+tar -zxvf v0.22.0.tar.gz -C /usr/local
 ./certbot-auto certonly --standalone --email name@domain.com -d domain.com
+./certbot-auto certonly -d "*.domain.com" --manual --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory
 ./certbot-auto renew --force-renewal --pre-hook "nginx -s quit" --post-hook "nginx"
+```
+
+## go
+
+### 安装
+``` bash
+wget https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz
+tar -zxvf go1.10.1.linux-amd64.tar.gz -C /usr/local
+echo 'export PATH=$PATH:/usr/local/go/bin' > /etc/profile.d/go.sh
 ```
 
 ## docker
@@ -364,4 +374,11 @@ docker run --name nextcloud --link mysqldb:mysqldb \
 -v /var/nextcloud/themes:/var/www/html/themes \
 -p 80:80 \
 -d nextcloud:latest
+```
+
+### ngrok
+``` bash
+docker pull hteen/ngrok
+docker run --rm -it -e DOMAIN="ngrok.domain.com" -v /var/ngrok:/myfiles hteen/ngrok /bin/sh /build.sh
+docker run -idt --name ngrok -v /var/ngrok:/myfiles -p 80:80 -p 443:443 -p 4443:4443 -e DOMAIN="ngrok.domain.com" hteen/ngrok /bin/sh /server.sh
 ```
